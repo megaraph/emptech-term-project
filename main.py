@@ -65,7 +65,7 @@ def main() -> None:
     cancel_all = input("Cancel all orders (y/n)? ")
 
     if cancel_all not in PROMPT_CHOICES:
-        # TODO: implement edge condition
+        # TODO: implement edge case
         pass
 
     if cancel_all == "y":
@@ -75,15 +75,15 @@ def main() -> None:
     exclude_item = input("Exclude an item from the total (y/n)? ")
 
     if exclude_item not in PROMPT_CHOICES:
-        # TODO: implement edge condition
+        # TODO: implement edge case
         pass
 
     if exclude_item == "y":
         order_to_exclude = input("For which order? ")
-        # TODO: implement edge condition where order input does not belong or none at all
+        # TODO: implement edge case where order input does not belong or none at all
 
         item_to_exclude = input("Which item will be excluded? ")
-        # TODO: implement edge condition where item input does not belong or none at all
+        # TODO: implement edge case where item input does not belong or none at all
 
         for order in orders:
             if order["order_num"] == int(order_to_exclude):
@@ -110,7 +110,7 @@ def get_orders_from_user() -> list:
         order_is_correct = input("Is this order correct (y/n)? ").lower()
 
         if order_is_correct not in PROMPT_CHOICES:
-            # TODO: implement edge condition
+            # TODO: implement edge case
             pass
 
         if order_is_correct == "n":
@@ -122,7 +122,7 @@ def get_orders_from_user() -> list:
         next_order = input("Proceed with next order (y/n)? ").lower()
 
         if next_order not in PROMPT_CHOICES:
-            # TODO: implement edge condition
+            # TODO: implement edge case
             pass
 
         if next_order == "n":
