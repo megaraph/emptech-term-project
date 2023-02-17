@@ -48,11 +48,7 @@ def main() -> None:
     print("\nWelcome! Would you like to order?")
     print("Type 'order' to continue, otherwise type 'exit'")
 
-    order_prompt = input("Answer [order/exit]: ").lower()
-
-    if order_prompt not in ["order", "exit"]:
-        print("Exiting... input not among the choices: 'order' or 'exit'")
-        return None
+    order_prompt = initiate_prompt("Answer [order/exit]: ", ["order", "exit"])
 
     if order_prompt == "exit":
         print("Exiting...")
@@ -62,21 +58,14 @@ def main() -> None:
 
     orders = get_orders_from_user()
 
-    cancel_all = input("Cancel all orders (y/n)? ")
+    cancel_all = initiate_prompt("Cancel all orders (y/n)? ")
 
-    if cancel_all not in PROMPT_CHOICES:
-        # TODO: implement edge case
-        pass
-
+    # TODO: implemeent feature for cancellation of all orders
     if cancel_all == "y":
         print("Cancelled all orders...")
         return None
 
-    exclude_item = input("Exclude an item from the total (y/n)? ")
-
-    if exclude_item not in PROMPT_CHOICES:
-        # TODO: implement edge case
-        pass
+    exclude_item = initiate_prompt("Exclude an item from the total (y/n)? ")
 
     if exclude_item == "y":
         order_to_exclude = input("For which order? ")
@@ -101,17 +90,26 @@ def main() -> None:
     return None
 
 
+def initiate_prompt(question: str, choices: list = PROMPT_CHOICES) -> str:
+    prompt_res = None
+
+    while prompt_res is None or prompt_res not in choices:
+        if prompt_res is not None:
+            print(
+                f"\nWARNING: The answer you provided is not found within the choices: ({choices[0]}/{choices[1]})"
+            )
+        prompt_res = input(question).lower()
+
+    return prompt_res
+
+
 def get_orders_from_user() -> list:
     orders = []
     order_num = 0
 
     while order_num < MAX_ORDERS:
         order = get_meal_order(order_num + 1)
-        order_is_correct = input("Is this order correct (y/n)? ").lower()
-
-        if order_is_correct not in PROMPT_CHOICES:
-            # TODO: implement edge case
-            pass
+        order_is_correct = initiate_prompt("Is this order correct (y/n)? ")
 
         if order_is_correct == "n":
             continue
@@ -119,11 +117,7 @@ def get_orders_from_user() -> list:
         orders.append(order)
         order_num += 1
 
-        next_order = input("Proceed with next order (y/n)? ").lower()
-
-        if next_order not in PROMPT_CHOICES:
-            # TODO: implement edge case
-            pass
+        next_order = initiate_prompt("Proceed with next order (y/n)? ")
 
         if next_order == "n":
             break
