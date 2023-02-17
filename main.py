@@ -55,7 +55,20 @@ def main() -> None:
         print("Exiting...")
         return None
 
-    num_members = int(input("\nHow many people are in your group: "))
+    while True:
+        try:
+            num_members = int(input("\nHow many people are in your group: "))
+
+            if num_members <= 0:
+                print(
+                    "\nWARNING: Number of members in a group cannot be negative or zero"
+                )
+                continue
+        except ValueError:
+            print("\nINFORMATION: Make sure to enter an integer value")
+            continue
+
+        break
 
     orders = get_orders_from_user()
 
