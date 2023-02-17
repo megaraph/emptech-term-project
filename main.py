@@ -51,6 +51,7 @@ def main() -> None:
     order_prompt = initiate_prompt("Answer [order/exit]: ", ["order", "exit"])
 
     if order_prompt == "exit":
+        print("\Thank you for using our service! Come again next time.")
         print("Exiting...")
         return None
 
