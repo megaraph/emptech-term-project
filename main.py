@@ -9,8 +9,8 @@
 # Description: A system for handling meal orders
 # Programmed by: Raphael C. Murillo STEM 11-B
 # Last modified: <date when last revision was made>
-# Version: <version number>
-# Acknowledgements: <list of sites or borrowed libraries and sources>
+# Version: Python 3.9
+# Acknowledgements: https://docs.python.org/3/
 
 MAX_ORDERS = 3
 
