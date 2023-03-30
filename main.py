@@ -109,12 +109,6 @@ while order_num < num_members:
 
     main = int(input("\tMain:\t\t"))
     if main == 0:
-        if order_num == 1:
-            ORDER_1_MAIN = None
-        elif order_num == 2:
-            ORDER_2_MAIN = None
-        elif order_num == 3:
-            ORDER_3_MAIN = None
         print("\t\tNone")
     elif main == 1:
         if order_num == 1:
@@ -163,12 +157,6 @@ while order_num < num_members:
 
     side = int(input("\tSide:\t\t"))
     if side == 0:
-        if order_num == 1:
-            ORDER_1_SIDE = None
-        elif order_num == 2:
-            ORDER_2_SIDE = None
-        elif order_num == 3:
-            ORDER_3_SIDE = None
         print("\t\tNone")
     elif side == 1:
         if order_num == 1:
@@ -216,7 +204,9 @@ while order_num < num_members:
         print(f"\t\t{SIDE_4_TYPE}")
 
     drink = int(input("\tDrink:\t\t"))
-    if drink == 1:
+    if drink == 0:
+        print("\t\tNone")
+    elif drink == 1:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_1_TYPE
             ORDER_1_DRINK_PRICE = DRINK_1_PRICE
