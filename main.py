@@ -14,48 +14,65 @@
 
 MAX_ORDERS = 3
 
-# MAINS
+# MAINS TYPES
 MAIN_1_TYPE = "Chicken"
-MAIN_1_PRICE = 90.0
 MAIN_2_TYPE = "Pork"
-MAIN_2_PRICE = 105.0
 MAIN_3_TYPE = "Fish"
-MAIN_3_PRICE = 120.0
 MAIN_4_TYPE = "Beef"
+
+# MAINS PRICES
+MAIN_1_PRICE = 90.0
+MAIN_2_PRICE = 105.0
+MAIN_3_PRICE = 120.0
 MAIN_4_PRICE = 135.0
 
-# SIDES
+# SIDES TYPES
 SIDE_1_TYPE = "Steamed Rice"
-SIDE_1_PRICE = 20.0
 SIDE_2_TYPE = "Shredded Corn"
-SIDE_2_PRICE = 35.0
 SIDE_3_TYPE = "Mashed Potatoes"
-SIDE_3_PRICE = 50.0
 SIDE_4_TYPE = "Steam Vegetables"
+
+# SIDE PRICES
+SIDE_1_PRICE = 20.0
+SIDE_2_PRICE = 35.0
+SIDE_3_PRICE = 50.0
 SIDE_4_PRICE = 65.0
 
-# DRINKS
-DRINK_1_TYPE = ""
-DRINK_1_PRICE = 20.0
-DRINK_2_TYPE = "Shredded Corn"
-DRINK_2_PRICE = 35.0
-DRINK_3_TYPE = "Mashed Potatoes"
-DRINK_3_PRICE = 50.0
-DRINK_4_TYPE = "Steam Vegetables"
-DRINK_4_PRICE = 65.0
+# DRINK TYPES
+DRINK_1_TYPE = "Mineral Water"
+DRINK_2_TYPE = "Iced Tea"
+DRINK_3_TYPE = "Soda"
+DRINK_4_TYPE = "Fruit Juice"
 
-# FINAL ORDERS
+# DRINK PRICES
+DRINK_1_PRICE = 25.0
+DRINK_2_PRICE = 35.0
+DRINK_3_PRICE = 45.0
+DRINK_4_PRICE = 55.0
+
+# FINAL ORDER 1
 ORDER_1_MAIN = None
 ORDER_1_SIDE = None
 ORDER_1_DRINK = None
+ORDER_1_MAIN_PRICE = None
+ORDER_1_SIDE_PRICE = None
+ORDER_1_DRINK_PRICE = None
 
+# FINAL ORDER 2
 ORDER_2_MAIN = None
 ORDER_2_SIDE = None
 ORDER_2_DRINK = None
+ORDER_2_MAIN_PRICE = None
+ORDER_2_SIDE_PRICE = None
+ORDER_2_DRINK_PRICE = None
 
+# FINAL ORDER 3
 ORDER_3_MAIN = None
 ORDER_3_SIDE = None
 ORDER_3_DRINK = None
+ORDER_3_MAIN_PRICE = None
+ORDER_3_SIDE_PRICE = None
+ORDER_3_DRINK_PRICE = None
 
 print("\nWelcome! Would you like to order?")
 print("Type 'order' to continue, otherwise type 'exit'")
@@ -102,37 +119,49 @@ while order_num < num_members:
     elif main == 1:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_1_TYPE
+            ORDER_1_MAIN_PRICE = MAIN_1_PRICE
         elif order_num == 2:
             ORDER_2_MAIN = MAIN_1_TYPE
+            ORDER_2_MAIN_PRICE = MAIN_1_PRICE
         elif order_num == 3:
             ORDER_3_MAIN = MAIN_1_TYPE
+            ORDER_3_MAIN_PRICE = MAIN_1_PRICE
         print(f"\t\t{MAIN_1_TYPE}")
     elif main == 2:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_2_TYPE
+            ORDER_1_MAIN_PRICE = MAIN_2_PRICE
         elif order_num == 2:
             ORDER_2_MAIN = MAIN_2_TYPE
+            ORDER_2_MAIN_PRICE = MAIN_2_PRICE
         elif order_num == 3:
             ORDER_3_MAIN = MAIN_2_TYPE
+            ORDER_3_MAIN_PRICE = MAIN_2_PRICE
         print(f"\t\t{MAIN_2_TYPE}")
     elif main == 3:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_3_TYPE
+            ORDER_1_MAIN_PRICE = MAIN_3_PRICE
         elif order_num == 2:
             ORDER_2_MAIN = MAIN_3_TYPE
+            ORDER_2_MAIN_PRICE = MAIN_3_PRICE
         elif order_num == 3:
             ORDER_3_MAIN = MAIN_3_TYPE
+            ORDER_3_MAIN_PRICE = MAIN_3_PRICE
         print(f"\t\t{MAIN_3_TYPE}")
     elif main == 4:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_4_TYPE
+            ORDER_1_MAIN_PRICE = MAIN_4_PRICE
         elif order_num == 2:
             ORDER_2_MAIN = MAIN_4_TYPE
+            ORDER_3_MAIN_PRICE = MAIN_4_PRICE
         elif order_num == 3:
             ORDER_3_MAIN = MAIN_4_TYPE
+            ORDER_3_MAIN_PRICE = MAIN_4_PRICE
         print(f"\t\t{MAIN_4_TYPE}")
 
-    side = input("\tSide:\t\t")
+    side = int(input("\tSide:\t\t"))
     if side == 0:
         if order_num == 1:
             ORDER_1_SIDE = None
@@ -144,88 +173,110 @@ while order_num < num_members:
     elif side == 1:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_1_TYPE
+            ORDER_1_SIDE_PRICE = SIDE_1_PRICE
         elif order_num == 2:
             ORDER_2_SIDE = SIDE_1_TYPE
+            ORDER_2_SIDE_PRICE = SIDE_1_PRICE
         elif order_num == 3:
             ORDER_3_SIDE = SIDE_1_TYPE
+            ORDER_3_SIDE_PRICE = SIDE_1_PRICE
         print(f"\t\t{SIDE_1_TYPE}")
     elif side == 2:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_2_TYPE
+            ORDER_1_SIDE_PRICE = SIDE_2_PRICE
         elif order_num == 2:
             ORDER_2_SIDE = SIDE_2_TYPE
+            ORDER_2_SIDE_PRICE = SIDE_2_PRICE
         elif order_num == 3:
             ORDER_3_SIDE = SIDE_2_TYPE
+            ORDER_3_SIDE_PRICE = SIDE_2_PRICE
         print(f"\t\t{SIDE_2_TYPE}")
     elif side == 3:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_3_TYPE
+            ORDER_1_SIDE_PRICE = SIDE_3_PRICE
         elif order_num == 2:
             ORDER_2_SIDE = SIDE_3_TYPE
+            ORDER_2_SIDE_PRICE = SIDE_3_PRICE
         elif order_num == 3:
             ORDER_3_SIDE = SIDE_3_TYPE
+            ORDER_3_SIDE_PRICE = SIDE_3_PRICE
         print(f"\t\t{SIDE_3_TYPE}")
     elif side == 4:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_4_TYPE
+            ORDER_1_SIDE_PRICE = SIDE_4_PRICE
         elif order_num == 2:
             ORDER_2_SIDE = SIDE_4_TYPE
+            ORDER_2_SIDE_PRICE = SIDE_4_PRICE
         elif order_num == 3:
             ORDER_3_SIDE = SIDE_4_TYPE
+            ORDER_3_SIDE_PRICE = SIDE_4_PRICE
         print(f"\t\t{SIDE_4_TYPE}")
 
-    drink = input("\tDrink:\t\t")
-    if drink == 0:
-        if order_num == 1:
-            ORDER_1_DRINK = None
-        elif order_num == 2:
-            ORDER_2_DRINK = None
-        elif order_num == 3:
-            ORDER_3_DRINK = None
-        print("\t\tNone")
-    elif drink == 1:
+    drink = int(input("\tDrink:\t\t"))
+    if drink == 1:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_1_TYPE
+            ORDER_1_DRINK_PRICE = DRINK_1_PRICE
         elif order_num == 2:
             ORDER_2_DRINK = DRINK_1_TYPE
+            ORDER_2_DRINK_PRICE = DRINK_1_PRICE
         elif order_num == 3:
             ORDER_3_DRINK = DRINK_1_TYPE
+            ORDER_3_DRINK_PRICE = DRINK_1_PRICE
         print(f"\t\t{DRINK_1_TYPE}")
     elif drink == 2:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_2_TYPE
+            ORDER_1_DRINK_PRICE = DRINK_2_PRICE
         elif order_num == 2:
             ORDER_2_DRINK = DRINK_2_TYPE
+            ORDER_2_DRINK_PRICE = DRINK_2_PRICE
         elif order_num == 3:
             ORDER_3_DRINK = DRINK_2_TYPE
+            ORDER_3_DRINK_PRICE = DRINK_2_PRICE
         print(f"\t\t{DRINK_2_TYPE}")
     elif drink == 3:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_3_TYPE
+            ORDER_1_DRINK_PRICE = DRINK_3_PRICE
         elif order_num == 2:
             ORDER_2_DRINK = DRINK_3_TYPE
+            ORDER_2_DRINK_PRICE = DRINK_3_PRICE
         elif order_num == 3:
             ORDER_3_DRINK = DRINK_3_TYPE
+            ORDER_3_DRINK_PRICE = DRINK_3_PRICE
         print(f"\t\t{DRINK_3_TYPE}")
     elif drink == 4:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_4_TYPE
+            ORDER_1_DRINK_PRICE = DRINK_4_PRICE
         elif order_num == 2:
             ORDER_2_DRINK = DRINK_4_TYPE
+            ORDER_2_DRINK_PRICE = DRINK_4_PRICE
         elif order_num == 3:
             ORDER_3_DRINK = DRINK_4_TYPE
+            ORDER_3_DRINK_PRICE = DRINK_4_PRICE
         print(f"\t\t{DRINK_4_TYPE}")
 
-    order_is_correct = None
-    while order_is_correct != "y" and order_is_correct != "n":
-        if order_is_correct is not None:
+    order_prompt_str = "Is this order correct"
+    if order_num == num_members:
+        order_prompt_str = "Cancel all orders"
+
+    order_prompt = None
+    while order_prompt != "y" and order_prompt != "n":
+        if order_prompt is not None:
             print(
                 "\nWARNING: The answer you provided is not found within the choices: (y/n)"
             )
-        order_is_correct = input("Is this order correct (y/n)? ")
+        order_prompt = input(f"{order_prompt_str} (y/n)? ")
 
-    if order_is_correct == "n":
+    if order_prompt == "n" and order_num < num_members:
         continue
+    elif order_prompt == "y" and order_num == num_members:
+        pass
 
     next_order = None
     while next_order != "y" and next_order != "n":
