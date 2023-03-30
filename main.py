@@ -62,73 +62,180 @@ print("Type 'order' to continue, otherwise type 'exit'")
 
 order_prompt = None
 while order_prompt != "order" and order_prompt != "exit":
-	if order_prompt is not None:
-		print(
-			"\nWARNING: The answer you provided is not found within the choices: (order/exit)"
-		)
-	order_prompt = input("Answer [order/exit]: ").lower()
+    if order_prompt is not None:
+        print(
+            "\nWARNING: The answer you provided is not found within the choices: (order/exit)"
+        )
+    order_prompt = input("Answer [order/exit]: ").lower()
 
 if order_prompt == "exit":
-	print("\Thank you for using our service! Come again next time.")
-	print("Exiting...")
-	exit()
+    print("\nThank you for using our service! Come again next time.")
+    print("Exiting...")
+    exit()
 
 num_members = -1
 while not 1 <= num_members <= 3:
-	num_members = int(input("\nHow many people are in your group: "))
+    num_members = int(input("\nHow many people are in your group: "))
 
-	if num_members < 0:
-		print("WARNING: Number of members can't be a negative number")
-		
-	if num_members > 3:
-		print("WARNING: Number of members can't be more than 3")
+    if num_members == 0:
+        print("WARNING: Number of members can't be zero")
+
+    if num_members < 0:
+        print("WARNING: Number of members can't be a negative number")
+
+    if num_members > 3:
+        print("WARNING: Number of members can't be more than 3")
 
 order_num = 0
 while order_num < num_members:
-	main = int(input("\tMain:\t\t"))
-	if main == 0:
-		if order_num == 1:
-			ORDER_1_MAIN = None
-		elif order_num == 2:
-			ORDER_2_MAIN = None
-		elif order_num == 3:
-			ORDER_3_MAIN = None
-	elif main == 1:
-		if order_num == 1:
-			ORDER_1_MAIN = MAIN_1_TYPE
-		elif order_num == 2:
-			ORDER_2_MAIN = MAIN_1_TYPE
-		elif order_num == 3:
-			ORDER_3_MAIN = MAIN_1_TYPE
-	elif main == 2:
-		if order_num == 1:
-			ORDER_1_MAIN = MAIN_2_TYPE
-		elif order_num == 2:
-			ORDER_2_MAIN = MAIN_2_TYPE
-		elif order_num == 3:
-			ORDER_3_MAIN = MAIN_2_TYPE
-	elif main == 3:
-		if order_num == 1:
-			ORDER_1_MAIN = MAIN_3_TYPE
-		elif order_num == 2:
-			ORDER_2_MAIN = MAIN_3_TYPE
-		elif order_num == 3:
-			ORDER_3_MAIN = MAIN_3_TYPE
-		
-	side = input("\tSide:\t\t")
-	
-	
-	drink = input("\tDrink:\t\t")
-	
-	order_is_correct = initiate_prompt("Is this order correct (y/n)? ")
+    print(f"\nOrder {order_num + 1}:")
 
-	if order_is_correct == "n":
-		continue
+    main = int(input("\tMain:\t\t"))
+    if main == 0:
+        if order_num == 1:
+            ORDER_1_MAIN = None
+        elif order_num == 2:
+            ORDER_2_MAIN = None
+        elif order_num == 3:
+            ORDER_3_MAIN = None
+        print("\t\tNone")
+    elif main == 1:
+        if order_num == 1:
+            ORDER_1_MAIN = MAIN_1_TYPE
+        elif order_num == 2:
+            ORDER_2_MAIN = MAIN_1_TYPE
+        elif order_num == 3:
+            ORDER_3_MAIN = MAIN_1_TYPE
+        print(f"\t\t{MAIN_1_TYPE}")
+    elif main == 2:
+        if order_num == 1:
+            ORDER_1_MAIN = MAIN_2_TYPE
+        elif order_num == 2:
+            ORDER_2_MAIN = MAIN_2_TYPE
+        elif order_num == 3:
+            ORDER_3_MAIN = MAIN_2_TYPE
+        print(f"\t\t{MAIN_2_TYPE}")
+    elif main == 3:
+        if order_num == 1:
+            ORDER_1_MAIN = MAIN_3_TYPE
+        elif order_num == 2:
+            ORDER_2_MAIN = MAIN_3_TYPE
+        elif order_num == 3:
+            ORDER_3_MAIN = MAIN_3_TYPE
+        print(f"\t\t{MAIN_3_TYPE}")
+    elif main == 4:
+        if order_num == 1:
+            ORDER_1_MAIN = MAIN_4_TYPE
+        elif order_num == 2:
+            ORDER_2_MAIN = MAIN_4_TYPE
+        elif order_num == 3:
+            ORDER_3_MAIN = MAIN_4_TYPE
+        print(f"\t\t{MAIN_4_TYPE}")
 
-	orders.append(order)
-	order_num += 1
+    side = input("\tSide:\t\t")
+    if side == 0:
+        if order_num == 1:
+            ORDER_1_SIDE = None
+        elif order_num == 2:
+            ORDER_2_SIDE = None
+        elif order_num == 3:
+            ORDER_3_SIDE = None
+        print("\t\tNone")
+    elif side == 1:
+        if order_num == 1:
+            ORDER_1_SIDE = SIDE_1_TYPE
+        elif order_num == 2:
+            ORDER_2_SIDE = SIDE_1_TYPE
+        elif order_num == 3:
+            ORDER_3_SIDE = SIDE_1_TYPE
+        print(f"\t\t{SIDE_1_TYPE}")
+    elif side == 2:
+        if order_num == 1:
+            ORDER_1_SIDE = SIDE_2_TYPE
+        elif order_num == 2:
+            ORDER_2_SIDE = SIDE_2_TYPE
+        elif order_num == 3:
+            ORDER_3_SIDE = SIDE_2_TYPE
+        print(f"\t\t{SIDE_2_TYPE}")
+    elif side == 3:
+        if order_num == 1:
+            ORDER_1_SIDE = SIDE_3_TYPE
+        elif order_num == 2:
+            ORDER_2_SIDE = SIDE_3_TYPE
+        elif order_num == 3:
+            ORDER_3_SIDE = SIDE_3_TYPE
+        print(f"\t\t{SIDE_3_TYPE}")
+    elif side == 4:
+        if order_num == 1:
+            ORDER_1_SIDE = SIDE_4_TYPE
+        elif order_num == 2:
+            ORDER_2_SIDE = SIDE_4_TYPE
+        elif order_num == 3:
+            ORDER_3_SIDE = SIDE_4_TYPE
+        print(f"\t\t{SIDE_4_TYPE}")
 
-	next_order = initiate_prompt("Proceed with next order (y/n)? ")
+    drink = input("\tDrink:\t\t")
+    if drink == 0:
+        if order_num == 1:
+            ORDER_1_DRINK = None
+        elif order_num == 2:
+            ORDER_2_DRINK = None
+        elif order_num == 3:
+            ORDER_3_DRINK = None
+        print("\t\tNone")
+    elif drink == 1:
+        if order_num == 1:
+            ORDER_1_DRINK = DRINK_1_TYPE
+        elif order_num == 2:
+            ORDER_2_DRINK = DRINK_1_TYPE
+        elif order_num == 3:
+            ORDER_3_DRINK = DRINK_1_TYPE
+        print(f"\t\t{DRINK_1_TYPE}")
+    elif drink == 2:
+        if order_num == 1:
+            ORDER_1_DRINK = DRINK_2_TYPE
+        elif order_num == 2:
+            ORDER_2_DRINK = DRINK_2_TYPE
+        elif order_num == 3:
+            ORDER_3_DRINK = DRINK_2_TYPE
+        print(f"\t\t{DRINK_2_TYPE}")
+    elif drink == 3:
+        if order_num == 1:
+            ORDER_1_DRINK = DRINK_3_TYPE
+        elif order_num == 2:
+            ORDER_2_DRINK = DRINK_3_TYPE
+        elif order_num == 3:
+            ORDER_3_DRINK = DRINK_3_TYPE
+        print(f"\t\t{DRINK_3_TYPE}")
+    elif drink == 4:
+        if order_num == 1:
+            ORDER_1_DRINK = DRINK_4_TYPE
+        elif order_num == 2:
+            ORDER_2_DRINK = DRINK_4_TYPE
+        elif order_num == 3:
+            ORDER_3_DRINK = DRINK_4_TYPE
+        print(f"\t\t{DRINK_4_TYPE}")
 
-	if next_order == "n":
-		break
+    order_is_correct = None
+    while order_is_correct != "y" and order_is_correct != "n":
+        if order_is_correct is not None:
+            print(
+                "\nWARNING: The answer you provided is not found within the choices: (y/n)"
+            )
+        order_is_correct = input("Is this order correct (y/n)? ")
+
+    if order_is_correct == "n":
+        continue
+
+    next_order = None
+    while next_order != "y" and next_order != "n":
+        if next_order is not None:
+            print(
+                "\nWARNING: The answer you provided is not found within the choices: (y/n)"
+            )
+        next_order = input("Proceed with next order (y/n)? ")
+
+    if next_order == "n":
+        break
+
+    order_num += 1
