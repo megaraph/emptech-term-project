@@ -74,6 +74,11 @@ ORDER_3_MAIN_PRICE = None
 ORDER_3_SIDE_PRICE = None
 ORDER_3_DRINK_PRICE = None
 
+# SUBTOTALS
+ORDER_1_SUBTOTAL = 0.0
+ORDER_2_SUBTOTAL = 0.0
+ORDER_3_SUBTOTAL = 0.0
+
 print("\nWelcome! Would you like to order?")
 print("Type 'order' to continue, otherwise type 'exit'")
 
@@ -103,9 +108,9 @@ while not 1 <= num_members <= 3:
     if num_members > 3:
         print("WARNING: Number of members can't be more than 3")
 
-order_num = 0
-while order_num < num_members:
-    print(f"\nOrder {order_num + 1}:")
+order_num = 1
+while order_num <= num_members:
+    print(f"\nOrder {order_num}:")
 
     main = int(input("\tMain:\t\t"))
     if main == 0:
@@ -251,8 +256,20 @@ while order_num < num_members:
             ORDER_3_DRINK_PRICE = DRINK_4_PRICE
         print(f"\t\t{DRINK_4_TYPE}")
 
-    order_prompt_str = "Is this order correct"
-    if order_num == num_members:
+    is_correct = None
+    while is_correct != "y" and is_correct != "n":
+        if is_correct is not None:
+            print(
+                "\nWARNING: The answer you provided is not found within the choices: (y/n)"
+            )
+        is_correct = input(f"Is this order correct? (y/n)? ")
+
+    if is_correct == "n":
+        continue
+
+    if not order_num == num_members:
+        order_prompt_str = "Proceed with next order"
+    else:
         order_prompt_str = "Cancel all orders"
 
     order_prompt = None
@@ -263,20 +280,98 @@ while order_num < num_members:
             )
         order_prompt = input(f"{order_prompt_str} (y/n)? ")
 
-    if order_prompt == "n" and order_num < num_members:
+    # if user wants to cancel all orders
+    if order_num == num_members and order_prompt == "y":
+        ORDER_1_MAIN_PRICE = None
+        ORDER_1_SIDE_PRICE = None
+        ORDER_1_DRINK_PRICE = None
+
+        ORDER_2_MAIN_PRICE = None
+        ORDER_2_SIDE_PRICE = None
+        ORDER_2_DRINK_PRICE = None
+
+        ORDER_3_MAIN_PRICE = None
+        ORDER_3_SIDE_PRICE = None
+        ORDER_3_DRINK_PRICE = None
+
+    # if user does not want to proceed with the next order
+    elif order_num < num_members and order_prompt == "n":
+        num_of_orders = order_num
+        order_num = 4
+
+    if order_num < num_members:
+        order_num += 1
         continue
-    elif order_prompt == "y" and order_num == num_members:
-        pass
 
-    next_order = None
-    while next_order != "y" and next_order != "n":
-        if next_order is not None:
-            print(
-                "\nWARNING: The answer you provided is not found within the choices: (y/n)"
-            )
-        next_order = input("Proceed with next order (y/n)? ")
+    exclude_count = 0
+    new_line = "\n"
+    while True:
+        exclude_prompt = input(
+            f"{new_line if exclude_count > 0 else ''}Exclude an item from the total (y/n)? "
+        )
+        exclude_count += 1
 
-    if next_order == "n":
-        break
+        if exclude_prompt != "y" and exclude_prompt != "n":
+            print("WARNING: Provide a valid input (y/n)")
+            continue
+        elif exclude_prompt == "n":
+            break
+
+        order_to_exclude = int(input("From which order? "))
+        item_to_exclude = int(input("Which item will be excluded? "))
+
+        if order_to_exclude == 1:
+            if item_to_exclude == 1:
+                ORDER_1_MAIN_PRICE = 0.0
+            elif item_to_exclude == 2:
+                ORDER_1_SIDE_PRICE = 0.0
+            elif item_to_exclude == 3:
+                ORDER_1_DRINK_PRICE = 0.0
+        elif order_to_exclude == 2:
+            if item_to_exclude == 1:
+                ORDER_2_MAIN_PRICE = 0.0
+            elif item_to_exclude == 2:
+                ORDER_2_SIDE_PRICE = 0.0
+            elif item_to_exclude == 3:
+                ORDER_2_DRINK_PRICE = 0.0
+        elif order_to_exclude == 3:
+            if item_to_exclude == 1:
+                ORDER_3_MAIN_PRICE = 0.0
+            elif item_to_exclude == 2:
+                ORDER_3_SIDE_PRICE = 0.0
+            elif item_to_exclude == 3:
+                ORDER_3_DRINK_PRICE = 0.0
 
     order_num += 1
+
+
+print(f"\nOrder for party of {num_members}\n")
+
+if num_of_orders >= 1:
+    print("Order 1:")
+    print(f"\tMain:\t{ORDER_1_MAIN}\tP{ORDER_1_MAIN_PRICE}")
+    print(f"\tSide:\t{ORDER_1_SIDE}\tP{ORDER_1_SIDE_PRICE}")
+    print(f"\tDrink:\t{ORDER_1_DRINK}\tP{ORDER_1_DRINK_PRICE}")
+
+    ORDER_1_SUBTOTAL = ORDER_1_MAIN_PRICE + ORDER_1_SIDE_PRICE + ORDER_1_DRINK_PRICE
+    print(f"Subtotal:\t\t\t\tP{ORDER_1_SUBTOTAL}")
+
+if num_of_orders >= 2:
+    print("Order 2:")
+    print(f"\tMain:\t{ORDER_2_MAIN}\tP{ORDER_2_MAIN_PRICE}")
+    print(f"\tSide:\t{ORDER_2_SIDE}\tP{ORDER_2_SIDE_PRICE}")
+    print(f"\tDrink:\t{ORDER_2_DRINK}\tP{ORDER_2_DRINK_PRICE}")
+
+    ORDER_2_SUBTOTAL = ORDER_2_MAIN_PRICE + ORDER_2_SIDE_PRICE + ORDER_2_DRINK_PRICE
+    print(f"Subtotal:\t\t\t\tP{ORDER_2_SUBTOTAL}")
+
+if num_of_orders == 3:
+    print("Order 3:")
+    print(f"\tMain:\t{ORDER_3_MAIN}\tP{ORDER_3_MAIN_PRICE}")
+    print(f"\tSide:\t{ORDER_3_SIDE}\tP{ORDER_3_SIDE_PRICE}")
+    print(f"\tDrink:\t{ORDER_3_DRINK}\tP{ORDER_3_DRINK_PRICE}")
+
+    ORDER_3_SUBTOTAL = ORDER_3_MAIN_PRICE + ORDER_3_SIDE_PRICE + ORDER_3_DRINK_PRICE
+    print(f"Subtotal:\t\t\t\tP{ORDER_3_SUBTOTAL}")
+
+print("Total Amount Due: ")
