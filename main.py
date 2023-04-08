@@ -12,6 +12,38 @@
 # Version: Python 3.9
 # Acknowledgements: https://docs.python.org/3/
 
+MENU = """
+MAINS:
++---------------------------------------+
+|  ID |   Type              |  Price    |
+|     |                     |           |
+|  1  |   Chicken           |  P90.00   |
+|  2  |   Pork              |  P105.00  |
+|  3  |   Fish              |  P120.00  |
+|  4  |   Beef              |  P135.00  |
++---------------------------------------+
+
+SIDES:
++---------------------------------------+
+|  ID |   Type              |  Price    |
+|     |                     |           |
+|  1  |   Steamed Rice      |  P20.00   |
+|  2  |   Shredded Corn     |  P35.00   |
+|  3  |   Mashed Potatoes   |  P50.00   |
+|  4  |   Steam Vegetables  |  P65.00   |
++---------------------------------------+
+
+DRINKS:
++---------------------------------------+
+|  ID |   Type              |  Price    |
+|     |                     |           |
+|  1  |   Mineral Water     |  P25.00   |
+|  2  |   Iced Tea          |  P35.00   |
+|  3  |   Soda              |  P45.00   |
+|  4  |   Fruit Juice       |  P55.00   |
++---------------------------------------+
+"""
+
 MAX_ORDERS = 3
 
 # MAINS TYPES
@@ -80,6 +112,7 @@ ORDER_2_SUBTOTAL = 0.0
 ORDER_3_SUBTOTAL = 0.0
 
 print("\nWelcome! Would you like to order?")
+print(MENU)
 print("Type 'order' to continue, otherwise type 'exit'")
 
 order_prompt = None
@@ -113,9 +146,7 @@ while order_num <= num_members:
     print(f"\nOrder {order_num}:")
 
     main = int(input("\tMain:\t\t"))
-    if main == 0:
-        print("\t\tNone")
-    elif main == 1:
+    if main == 1:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_1_TYPE
             ORDER_1_MAIN_PRICE = MAIN_1_PRICE
@@ -159,11 +190,11 @@ while order_num <= num_members:
             ORDER_3_MAIN = MAIN_4_TYPE
             ORDER_3_MAIN_PRICE = MAIN_4_PRICE
         print(f"\t\t{MAIN_4_TYPE}")
+    else:
+        print("\t\tNone")
 
     side = int(input("\tSide:\t\t"))
-    if side == 0:
-        print("\t\tNone")
-    elif side == 1:
+    if side == 1:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_1_TYPE
             ORDER_1_SIDE_PRICE = SIDE_1_PRICE
@@ -207,11 +238,11 @@ while order_num <= num_members:
             ORDER_3_SIDE = SIDE_4_TYPE
             ORDER_3_SIDE_PRICE = SIDE_4_PRICE
         print(f"\t\t{SIDE_4_TYPE}")
+    else:
+        print("\t\tNone")
 
     drink = int(input("\tDrink:\t\t"))
-    if drink == 0:
-        print("\t\tNone")
-    elif drink == 1:
+    if drink == 1:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_1_TYPE
             ORDER_1_DRINK_PRICE = DRINK_1_PRICE
@@ -255,6 +286,8 @@ while order_num <= num_members:
             ORDER_3_DRINK = DRINK_4_TYPE
             ORDER_3_DRINK_PRICE = DRINK_4_PRICE
         print(f"\t\t{DRINK_4_TYPE}")
+    else:
+        print("\t\tNone")
 
     is_correct = None
     while is_correct != "y" and is_correct != "n":
@@ -334,6 +367,8 @@ while order_num <= num_members:
             elif item_to_exclude == 3:
                 ORDER_1_DRINK_PRICE = 0.0
                 print(f"{ORDER_1_DRINK} will be excluded from the total.")
+            else:
+                print("None will be excluded from the total.")
         elif order_to_exclude == 2:
             if item_to_exclude == 1:
                 ORDER_2_MAIN_PRICE = 0.0
@@ -344,6 +379,8 @@ while order_num <= num_members:
             elif item_to_exclude == 3:
                 ORDER_2_DRINK_PRICE = 0.0
                 print(f"{ORDER_2_DRINK} will be excluded from the total.")
+            else:
+                print("None will be excluded from the total.")
         elif order_to_exclude == 3:
             if item_to_exclude == 1:
                 ORDER_3_MAIN_PRICE = 0.0
@@ -354,6 +391,10 @@ while order_num <= num_members:
             elif item_to_exclude == 3:
                 ORDER_3_DRINK_PRICE = 0.0
                 print(f"{ORDER_3_DRINK} will be excluded from the total.")
+            else:
+                print("None will be excluded from the total.")
+        else:
+            print("None will be excluded from the total.")
 
     order_num += 1
 
@@ -362,31 +403,31 @@ print(f"\nOrder for party of {num_members}\n")
 
 if num_of_orders >= 1:
     print("Order 1:")
-    print(f"\tMain:\t{ORDER_1_MAIN}\tP{ORDER_1_MAIN_PRICE}")
-    print(f"\tSide:\t{ORDER_1_SIDE}\tP{ORDER_1_SIDE_PRICE}")
-    print(f"\tDrink:\t{ORDER_1_DRINK}\tP{ORDER_1_DRINK_PRICE}")
+    print(f"\t{'Main':<6}\t{ORDER_1_MAIN:<22}\tP{ORDER_1_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{ORDER_1_SIDE:<22}\tP{ORDER_1_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{ORDER_1_DRINK:<22}\tP{ORDER_1_DRINK_PRICE:.2f}")
 
     ORDER_1_SUBTOTAL = ORDER_1_MAIN_PRICE + ORDER_1_SIDE_PRICE + ORDER_1_DRINK_PRICE
-    print(f"Subtotal:\t\t\t\tP{ORDER_1_SUBTOTAL}")
+    print(f"Subtotal:\t\t\t\t\tP{ORDER_1_SUBTOTAL:.2f}")
 
 if num_of_orders >= 2:
     print("Order 2:")
-    print(f"\tMain:\t{ORDER_2_MAIN}\tP{ORDER_2_MAIN_PRICE}")
-    print(f"\tSide:\t{ORDER_2_SIDE}\tP{ORDER_2_SIDE_PRICE}")
-    print(f"\tDrink:\t{ORDER_2_DRINK}\tP{ORDER_2_DRINK_PRICE}")
+    print(f"\t{'Main':<6}\t{ORDER_2_MAIN:<22}\tP{ORDER_2_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{ORDER_2_SIDE:<22}\tP{ORDER_2_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{ORDER_2_DRINK:<22}\tP{ORDER_2_DRINK_PRICE:.2f}")
 
     ORDER_2_SUBTOTAL = ORDER_2_MAIN_PRICE + ORDER_2_SIDE_PRICE + ORDER_2_DRINK_PRICE
-    print(f"Subtotal:\t\t\t\tP{ORDER_2_SUBTOTAL}")
+    print(f"Subtotal:\t\t\t\t\tP{ORDER_2_SUBTOTAL:.2f}")
 
 if num_of_orders == 3:
     print("Order 3:")
-    print(f"\tMain:\t{ORDER_3_MAIN}\tP{ORDER_3_MAIN_PRICE}")
-    print(f"\tSide:\t{ORDER_3_SIDE}\tP{ORDER_3_SIDE_PRICE}")
-    print(f"\tDrink:\t{ORDER_3_DRINK}\tP{ORDER_3_DRINK_PRICE}")
+    print(f"\t{'Main':<6}\t{ORDER_3_MAIN:<22}\tP{ORDER_3_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{ORDER_3_SIDE:<22}\tP{ORDER_3_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{ORDER_3_DRINK:<22}\tP{ORDER_3_DRINK_PRICE:.2f}")
 
     ORDER_3_SUBTOTAL = ORDER_3_MAIN_PRICE + ORDER_3_SIDE_PRICE + ORDER_3_DRINK_PRICE
-    print(f"Subtotal:\t\t\t\tP{ORDER_3_SUBTOTAL}")
+    print(f"Subtotal:\t\t\t\t\tP{ORDER_3_SUBTOTAL:.2f}")
 
 TOTAL_AMOUNT = ORDER_1_SUBTOTAL + ORDER_2_SUBTOTAL + ORDER_3_SUBTOTAL
-print(f"Total Amount Due: \t\t\tP{TOTAL_AMOUNT}")
-print(f"Each person must pay: \t\t\tP{(TOTAL_AMOUNT / num_members):.2f}")
+print(f"\nTotal Amount Due: \t\t\t\tP{TOTAL_AMOUNT:.2f}")
+print(f"Each person must pay: \t\t\t\tP{(TOTAL_AMOUNT / num_members):.2f}")
