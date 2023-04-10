@@ -8,7 +8,7 @@
 
 # Description: A system for handling meal orders
 # Programmed by: Raphael C. Murillo STEM 11-B
-# Last modified: <date when last revision was made>
+# Last modified: April 10, 2023
 # Version: Python 3.9
 # Acknowledgements: https://docs.python.org/3/
 
@@ -130,13 +130,17 @@ if order_prompt == "exit":
 
 num_members = -1
 while not 1 <= num_members <= 3:
-    num_members = int(input("\nHow many people are in your group: "))
+    num_members = input("\nHow many people are in your group: ")
+
+    if not num_members.isnumeric():
+        print("WARNING: Number of members must be a number value from 1 to 3")
+        num_members = -1
+        continue
+
+    num_members = int(num_members)
 
     if num_members == 0:
         print("WARNING: Number of members can't be zero")
-
-    if num_members < 0:
-        print("WARNING: Number of members can't be a negative number")
 
     if num_members > 3:
         print("WARNING: Number of members can't be more than 3")
@@ -145,7 +149,20 @@ order_num = 1
 while order_num <= num_members:
     print(f"\nOrder {order_num}:")
 
-    main = int(input("\tMain:\t\t"))
+    main = -1
+    while not 0 <= main <= 4:
+        main = input("\tMain:\t\t")
+
+        if not main.isnumeric():
+            print("\tWARNING: Input must be a number value from 0 to 4\n")
+            main = -1
+            continue
+
+        main = int(main)
+
+        if main > 4:
+            print("\tWARNING: Input can't be more than 4\n")
+
     if main == 1:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_1_TYPE
@@ -193,7 +210,20 @@ while order_num <= num_members:
     else:
         print("\t\tNone")
 
-    side = int(input("\tSide:\t\t"))
+    side = -1
+    while not 0 <= side <= 4:
+        side = input("\tSide:\t\t")
+
+        if not side.isnumeric():
+            print("\tWARNING: Input must be a number value from 0 to 4\n")
+            side = -1
+            continue
+
+        side = int(side)
+
+        if side > 4:
+            print("\tWARNING: Input can't be more than 4\n")
+
     if side == 1:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_1_TYPE
@@ -241,7 +271,20 @@ while order_num <= num_members:
     else:
         print("\t\tNone")
 
-    drink = int(input("\tDrink:\t\t"))
+    drink = -1
+    while not 0 <= drink <= 4:
+        drink = input("\tDrink:\t\t")
+
+        if not drink.isnumeric():
+            print("\tWARNING: Input must be a number value from 0 to 4\n")
+            drink = -1
+            continue
+
+        drink = int(drink)
+
+        if drink > 4:
+            print("\tWARNING: Input can't be more than 4\n")
+
     if drink == 1:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_1_TYPE
@@ -372,11 +415,47 @@ while order_num <= num_members:
         if exclude_prompt != "y" and exclude_prompt != "n":
             print("WARNING: Provide a valid input (y/n)")
             continue
-        elif exclude_prompt == "n":
+
+        if exclude_prompt == "n":
             break
 
-        order_to_exclude = int(input("From which order? "))
-        item_to_exclude = int(input("Which item will be excluded? "))
+        order_to_exclude = -1
+        while not 1 <= order_to_exclude <= num_of_orders:
+            order_to_exclude = input("From which order? ")
+
+            if not order_to_exclude.isnumeric():
+                print(
+                    f"WARNING: Order must be a number value from 1 to {num_of_orders}\n"
+                )
+                order_to_exclude = -1
+                continue
+
+            order_to_exclude = int(order_to_exclude)
+
+            if order_to_exclude == 0:
+                print("WARNING: Order can't be zero\n")
+
+            if order_to_exclude > num_of_orders:
+                print(
+                    f"WARNING: Number of orders is {num_of_orders}. Order must be a number value from 1 to {num_of_orders}\n"
+                )
+
+        item_to_exclude = -1
+        while not 1 <= item_to_exclude <= 4:
+            item_to_exclude = input("Which item will be excluded? ")
+
+            if not item_to_exclude.isnumeric():
+                print(f"WARNING: Item must be a number value from 1 to 4\n")
+                item_to_exclude = -1
+                continue
+
+            item_to_exclude = int(item_to_exclude)
+
+            if item_to_exclude == 0:
+                print("WARNING: Item can't be zero\n")
+
+            if item_to_exclude > 4:
+                print(f"WARNING: Item must be a number value from 1 to 4\n")
 
         if order_to_exclude == 1:
             if item_to_exclude == 1:
