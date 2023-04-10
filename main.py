@@ -424,27 +424,27 @@ print(f"\nOrder for party of {num_members}\n")
 
 if num_of_orders >= 1:
     print("Order 1:")
-    print(f"\t{'Main':<6}\t{ORDER_1_MAIN:<22}\tP{ORDER_1_MAIN_PRICE:.2f}")
-    print(f"\t{'Side':<6}\t{ORDER_1_SIDE:<22}\tP{ORDER_1_SIDE_PRICE:.2f}")
-    print(f"\t{'Drink':<6}\t{ORDER_1_DRINK:<22}\tP{ORDER_1_DRINK_PRICE:.2f}")
+    print(f"\t{'Main':<6}\t{str(ORDER_1_MAIN):<22}\tP{ORDER_1_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{str(ORDER_1_SIDE):<22}\tP{ORDER_1_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{str(ORDER_1_DRINK):<22}\tP{ORDER_1_DRINK_PRICE:.2f}")
 
     ORDER_1_SUBTOTAL = ORDER_1_MAIN_PRICE + ORDER_1_SIDE_PRICE + ORDER_1_DRINK_PRICE
     print(f"Subtotal:\t\t\t\t\tP{ORDER_1_SUBTOTAL:.2f}")
 
 if num_of_orders >= 2:
     print("Order 2:")
-    print(f"\t{'Main':<6}\t{ORDER_2_MAIN:<22}\tP{ORDER_2_MAIN_PRICE:.2f}")
-    print(f"\t{'Side':<6}\t{ORDER_2_SIDE:<22}\tP{ORDER_2_SIDE_PRICE:.2f}")
-    print(f"\t{'Drink':<6}\t{ORDER_2_DRINK:<22}\tP{ORDER_2_DRINK_PRICE:.2f}")
+    print(f"\t{'Main':<6}\t{str(ORDER_2_MAIN):<22}\tP{ORDER_2_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{str(ORDER_2_SIDE):<22}\tP{ORDER_2_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{str(ORDER_2_DRINK):<22}\tP{ORDER_2_DRINK_PRICE:.2f}")
 
     ORDER_2_SUBTOTAL = ORDER_2_MAIN_PRICE + ORDER_2_SIDE_PRICE + ORDER_2_DRINK_PRICE
     print(f"Subtotal:\t\t\t\t\tP{ORDER_2_SUBTOTAL:.2f}")
 
 if num_of_orders == 3:
     print("Order 3:")
-    print(f"\t{'Main':<6}\t{ORDER_3_MAIN:<22}\tP{ORDER_3_MAIN_PRICE:.2f}")
-    print(f"\t{'Side':<6}\t{ORDER_3_SIDE:<22}\tP{ORDER_3_SIDE_PRICE:.2f}")
-    print(f"\t{'Drink':<6}\t{ORDER_3_DRINK:<22}\tP{ORDER_3_DRINK_PRICE:.2f}")
+    print(f"\t{'Main':<6}\t{str(ORDER_3_MAIN):<22}\tP{ORDER_3_MAIN_PRICE:.2f}")
+    print(f"\t{'Side':<6}\t{str(ORDER_3_SIDE):<22}\tP{ORDER_3_SIDE_PRICE:.2f}")
+    print(f"\t{'Drink':<6}\t{str(ORDER_3_DRINK):<22}\tP{ORDER_3_DRINK_PRICE:.2f}")
 
     ORDER_3_SUBTOTAL = ORDER_3_MAIN_PRICE + ORDER_3_SIDE_PRICE + ORDER_3_DRINK_PRICE
     print(f"Subtotal:\t\t\t\t\tP{ORDER_3_SUBTOTAL:.2f}")
