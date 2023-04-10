@@ -167,46 +167,62 @@ while order_num <= num_members:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_1_TYPE
             ORDER_1_MAIN_PRICE = MAIN_1_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_MAIN = MAIN_1_TYPE
             ORDER_2_MAIN_PRICE = MAIN_1_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_MAIN = MAIN_1_TYPE
             ORDER_3_MAIN_PRICE = MAIN_1_PRICE
+
         print(f"\t\t{MAIN_1_TYPE}")
+
     elif main == 2:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_2_TYPE
             ORDER_1_MAIN_PRICE = MAIN_2_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_MAIN = MAIN_2_TYPE
             ORDER_2_MAIN_PRICE = MAIN_2_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_MAIN = MAIN_2_TYPE
             ORDER_3_MAIN_PRICE = MAIN_2_PRICE
+
         print(f"\t\t{MAIN_2_TYPE}")
+
     elif main == 3:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_3_TYPE
             ORDER_1_MAIN_PRICE = MAIN_3_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_MAIN = MAIN_3_TYPE
             ORDER_2_MAIN_PRICE = MAIN_3_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_MAIN = MAIN_3_TYPE
             ORDER_3_MAIN_PRICE = MAIN_3_PRICE
+
         print(f"\t\t{MAIN_3_TYPE}")
+
     elif main == 4:
         if order_num == 1:
             ORDER_1_MAIN = MAIN_4_TYPE
             ORDER_1_MAIN_PRICE = MAIN_4_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_MAIN = MAIN_4_TYPE
             ORDER_3_MAIN_PRICE = MAIN_4_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_MAIN = MAIN_4_TYPE
             ORDER_3_MAIN_PRICE = MAIN_4_PRICE
+
         print(f"\t\t{MAIN_4_TYPE}")
+
     else:
         print("\t\tNone")
 
@@ -228,46 +244,62 @@ while order_num <= num_members:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_1_TYPE
             ORDER_1_SIDE_PRICE = SIDE_1_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_SIDE = SIDE_1_TYPE
             ORDER_2_SIDE_PRICE = SIDE_1_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_SIDE = SIDE_1_TYPE
             ORDER_3_SIDE_PRICE = SIDE_1_PRICE
+
         print(f"\t\t{SIDE_1_TYPE}")
+
     elif side == 2:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_2_TYPE
             ORDER_1_SIDE_PRICE = SIDE_2_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_SIDE = SIDE_2_TYPE
             ORDER_2_SIDE_PRICE = SIDE_2_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_SIDE = SIDE_2_TYPE
             ORDER_3_SIDE_PRICE = SIDE_2_PRICE
+
         print(f"\t\t{SIDE_2_TYPE}")
+
     elif side == 3:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_3_TYPE
             ORDER_1_SIDE_PRICE = SIDE_3_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_SIDE = SIDE_3_TYPE
             ORDER_2_SIDE_PRICE = SIDE_3_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_SIDE = SIDE_3_TYPE
             ORDER_3_SIDE_PRICE = SIDE_3_PRICE
+
         print(f"\t\t{SIDE_3_TYPE}")
+
     elif side == 4:
         if order_num == 1:
             ORDER_1_SIDE = SIDE_4_TYPE
             ORDER_1_SIDE_PRICE = SIDE_4_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_SIDE = SIDE_4_TYPE
             ORDER_2_SIDE_PRICE = SIDE_4_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_SIDE = SIDE_4_TYPE
             ORDER_3_SIDE_PRICE = SIDE_4_PRICE
+
         print(f"\t\t{SIDE_4_TYPE}")
+
     else:
         print("\t\tNone")
 
@@ -289,46 +321,62 @@ while order_num <= num_members:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_1_TYPE
             ORDER_1_DRINK_PRICE = DRINK_1_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_DRINK = DRINK_1_TYPE
             ORDER_2_DRINK_PRICE = DRINK_1_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_DRINK = DRINK_1_TYPE
             ORDER_3_DRINK_PRICE = DRINK_1_PRICE
+
         print(f"\t\t{DRINK_1_TYPE}")
+
     elif drink == 2:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_2_TYPE
             ORDER_1_DRINK_PRICE = DRINK_2_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_DRINK = DRINK_2_TYPE
             ORDER_2_DRINK_PRICE = DRINK_2_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_DRINK = DRINK_2_TYPE
             ORDER_3_DRINK_PRICE = DRINK_2_PRICE
+
         print(f"\t\t{DRINK_2_TYPE}")
+
     elif drink == 3:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_3_TYPE
             ORDER_1_DRINK_PRICE = DRINK_3_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_DRINK = DRINK_3_TYPE
             ORDER_2_DRINK_PRICE = DRINK_3_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_DRINK = DRINK_3_TYPE
             ORDER_3_DRINK_PRICE = DRINK_3_PRICE
+
         print(f"\t\t{DRINK_3_TYPE}")
+
     elif drink == 4:
         if order_num == 1:
             ORDER_1_DRINK = DRINK_4_TYPE
             ORDER_1_DRINK_PRICE = DRINK_4_PRICE
-        elif order_num == 2:
+
+        if order_num == 2:
             ORDER_2_DRINK = DRINK_4_TYPE
             ORDER_2_DRINK_PRICE = DRINK_4_PRICE
-        elif order_num == 3:
+
+        if order_num == 3:
             ORDER_3_DRINK = DRINK_4_TYPE
             ORDER_3_DRINK_PRICE = DRINK_4_PRICE
+
         print(f"\t\t{DRINK_4_TYPE}")
+
     else:
         print("\t\tNone")
 
@@ -367,7 +415,6 @@ while order_num <= num_members:
             )
         cancel_all = input(f"Cancel all orders (y/n)? ").lower()
 
-    # if user wants to cancel all orders
     if cancel_all == "y":
         # FINAL ORDER 1
         ORDER_1_MAIN = None
@@ -405,12 +452,13 @@ while order_num <= num_members:
         continue
 
     exclude_count = 0
-    new_line = "\n"
     while True:
-        exclude_prompt = input(
-            f"{new_line if exclude_count > 0 else ''}Exclude an{'other' if exclude_count > 0 else ''} item from the total (y/n)? "
-        ).lower()
-        exclude_count += 1
+        if exclude_count == 0:
+            exclude_prompt = input("Exclude an item from the total (y/n)? ").lower()
+        else:
+            exclude_prompt = input(
+                "\nExclude another item from the total (y/n)? "
+            ).lower()
 
         if exclude_prompt != "y" and exclude_prompt != "n":
             print("WARNING: Provide a valid input (y/n)")
@@ -418,6 +466,8 @@ while order_num <= num_members:
 
         if exclude_prompt == "n":
             break
+
+        exclude_count += 1
 
         order_to_exclude = -1
         while not 1 <= order_to_exclude <= num_of_orders:
