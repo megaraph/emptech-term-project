@@ -326,17 +326,38 @@ while order_num <= num_members:
 
     # if user wants to cancel all orders
     if cancel_all == "y":
+        # FINAL ORDER 1
+        ORDER_1_MAIN = None
+        ORDER_1_SIDE = None
+        ORDER_1_DRINK = None
         ORDER_1_MAIN_PRICE = 0.0
         ORDER_1_SIDE_PRICE = 0.0
         ORDER_1_DRINK_PRICE = 0.0
 
+        # FINAL ORDER 2
+        ORDER_2_MAIN = None
+        ORDER_2_SIDE = None
+        ORDER_2_DRINK = None
         ORDER_2_MAIN_PRICE = 0.0
         ORDER_2_SIDE_PRICE = 0.0
         ORDER_2_DRINK_PRICE = 0.0
 
+        # FINAL ORDER 3
+        ORDER_3_MAIN = None
+        ORDER_3_SIDE = None
+        ORDER_3_DRINK = None
         ORDER_3_MAIN_PRICE = 0.0
         ORDER_3_SIDE_PRICE = 0.0
         ORDER_3_DRINK_PRICE = 0.0
+
+        # SUBTOTALS
+        ORDER_1_SUBTOTAL = 0.0
+        ORDER_2_SUBTOTAL = 0.0
+        ORDER_3_SUBTOTAL = 0.0
+
+        order_num = 1
+
+        print("\nAll orders canceled...")
 
         continue
 
