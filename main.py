@@ -13,7 +13,7 @@
 # Acknowledgements: https://docs.python.org/3/
 
 MENU = """
-MAINS:
+             MAINS
 +---------------------------------------+
 |  ID |   Type              |  Price    |
 |     |                     |           |
@@ -23,7 +23,7 @@ MAINS:
 |  4  |   Beef              |  P135.00  |
 +---------------------------------------+
 
-SIDES:
+              SIDES
 +---------------------------------------+
 |  ID |   Type              |  Price    |
 |     |                     |           |
@@ -33,7 +33,7 @@ SIDES:
 |  4  |   Steam Vegetables  |  P65.00   |
 +---------------------------------------+
 
-DRINKS:
+               DRINKS
 +---------------------------------------+
 |  ID |   Type              |  Price    |
 |     |                     |           |
@@ -224,6 +224,18 @@ while order_num <= num_members:
         print(f"\t\t{MAIN_4_TYPE}")
 
     else:
+        if order_num == 1:
+            ORDER_1_MAIN = None
+            ORDER_1_MAIN_PRICE = 0.0
+
+        if order_num == 2:
+            ORDER_2_MAIN = None
+            ORDER_3_MAIN_PRICE = 0.0
+
+        if order_num == 3:
+            ORDER_3_MAIN = None
+            ORDER_3_MAIN_PRICE = 0.0
+
         print("\t\tNone")
 
     side = -1
@@ -301,6 +313,18 @@ while order_num <= num_members:
         print(f"\t\t{SIDE_4_TYPE}")
 
     else:
+        if order_num == 1:
+            ORDER_1_SIDE = None
+            ORDER_1_SIDE_PRICE = 0.0
+
+        if order_num == 2:
+            ORDER_2_SIDE = None
+            ORDER_2_SIDE_PRICE = 0.0
+
+        if order_num == 3:
+            ORDER_3_SIDE = None
+            ORDER_3_SIDE_PRICE = 0.0
+
         print("\t\tNone")
 
     drink = -1
@@ -378,6 +402,18 @@ while order_num <= num_members:
         print(f"\t\t{DRINK_4_TYPE}")
 
     else:
+        if order_num == 1:
+            ORDER_1_DRINK = None
+            ORDER_1_DRINK_PRICE = 0.0
+
+        if order_num == 2:
+            ORDER_2_DRINK = None
+            ORDER_2_DRINK_PRICE = 0.0
+
+        if order_num == 3:
+            ORDER_3_DRINK = None
+            ORDER_3_DRINK_PRICE = 0.0
+
         print("\t\tNone")
 
     is_correct = None
@@ -388,9 +424,13 @@ while order_num <= num_members:
             )
         is_correct = input(f"Is this order correct? (y/n)? ").lower()
 
+    # Redo the whole ordering process for the latest order number
     if is_correct == "n":
         continue
 
+    # Keep redoing the order process with a different order number as long as the
+    # orders do not exceed the max number of orders (depending on number of members)
+    # Example: If there are 2 people in a group, keep asking for orders until it is 2 orders
     if order_num < num_members:
         next_order = None
         while next_order != "y" and next_order != "n":
@@ -404,7 +444,12 @@ while order_num <= num_members:
             order_num += 1
             continue
 
+    # Variable `num_of_orders` is used to determine final amount of orders
+    # for the checkout process
     num_of_orders = order_num
+
+    # Variable `order_num` exceeds max of 3 orders as it is used to breakaway from
+    # the while loop without the need to explicitly add a condition at the end to break
     order_num = 4
 
     cancel_all = None
@@ -415,6 +460,8 @@ while order_num <= num_members:
             )
         cancel_all = input(f"Cancel all orders (y/n)? ").lower()
 
+    # User should be redirected back to the first order if user
+    # decides to cancel all orders
     if cancel_all == "y":
         # FINAL ORDER 1
         ORDER_1_MAIN = None
@@ -451,7 +498,10 @@ while order_num <= num_members:
 
         continue
 
+    # Variable `exclude_count` is only used for User Experience (UX) purposes as
+    # input message for exclude should be different if it is not the first exclusion
     exclude_count = 0
+
     while True:
         if exclude_count == 0:
             exclude_prompt = input("Exclude an item from the total (y/n)? ").lower()
@@ -548,8 +598,11 @@ while order_num <= num_members:
 
     order_num += 1
 
-
 print(f"\nOrder for party of {num_members}\n")
+
+# Format Strings and Format Specification Mini-Language were utilized to properly align outputs in a tabular format
+# Mostly used the `<` option for left-alignment and `f` for decimal representation up to 2 decimal places
+# Reference: https://docs.python.org/3/library/string.html?highlight=f%20string#format-specification-mini-language
 
 if num_of_orders >= 1:
     print("Order 1:")
