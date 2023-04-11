@@ -541,11 +541,11 @@ while order_num <= num_members:
                 )
 
         item_to_exclude = -1
-        while not 1 <= item_to_exclude <= 4:
+        while not 1 <= item_to_exclude <= 3:
             item_to_exclude = input("Which item will be excluded? ")
 
             if not item_to_exclude.isnumeric():
-                print(f"WARNING: Item must be a number value from 1 to 4\n")
+                print(f"WARNING: Item must be a number value from 1 to 3\n")
                 item_to_exclude = -1
                 continue
 
