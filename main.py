@@ -9,7 +9,8 @@
 # Description: A system for handling meal orders
 # Programmed by: Raphael C. Murillo STEM 11-B
 # Last modified: April 10, 2023
-# Version: Python 3.9
+# Version: 12
+# Python Version: 3.9.6
 # Acknowledgements: https://docs.python.org/3/
 
 MENU = """
